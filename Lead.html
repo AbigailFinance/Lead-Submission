@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  // 🔒 Redirect if not logged in
+  if (!sessionStorage.getItem("isLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Loan Enquiry Form</title>
@@ -241,39 +247,30 @@
     modal.show();
   });
 </script>
-<script>
-  const IDLE_LIMIT = 3 * 60 * 1000; // 3 minutes
+  
+<!-- ⏳ Idle Timeout -->
+  <script>
+    const IDLE_LIMIT = 3 * 60 * 1000;
 
-  // 🔐 Block access if not logged in
-  if (!sessionStorage.getItem("isLoggedIn")) {
-    window.location.href = "login.html";
-  }
-
-  function updateActivity() {
-    sessionStorage.setItem("lastActivity", Date.now());
-  }
-
-  // Track user activity
-  ["click", "mousemove", "keypress", "scroll", "touchstart"].forEach(event => {
-    document.addEventListener(event, updateActivity);
-  });
-
-  // Check inactivity every 10 seconds
-  setInterval(() => {
-    const lastActivity = sessionStorage.getItem("lastActivity");
-
-    if (!lastActivity) {
-      window.location.href = "login.html";
-      return;
+    function updateActivity() {
+      sessionStorage.setItem("lastActivity", Date.now());
     }
 
-    if (Date.now() - lastActivity > IDLE_LIMIT) {
-      sessionStorage.clear();
-      alert("Session expired due to inactivity. Please log in again.");
-      window.location.href = "login.html";
-    }
-  }, 10000);
-</script>
+    ["click", "mousemove", "keypress", "scroll", "touchstart"].forEach(event => {
+      document.addEventListener(event, updateActivity);
+    });
+
+    setInterval(() => {
+      const lastActivity = sessionStorage.getItem("lastActivity");
+
+      if (!lastActivity || Date.now() - lastActivity > IDLE_LIMIT) {
+        sessionStorage.clear();
+        alert("Session expired. Please log in again.");
+        window.location.href = "login.html";
+      }
+    }, 10000);
+  </script>
 </body>
 </html>
+
 
