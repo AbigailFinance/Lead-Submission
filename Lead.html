@@ -84,7 +84,51 @@
   </style>
 </head>
 <body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg px-4 py-3">
+  <a class="navbar-brand" href="#">
+    <img src="logo-horizontal.png" alt="Logo">
+  </a>
 
+  <div class="ms-auto d-flex align-items-center gap-3">
+
+    <div class="position-relative">
+  <input 
+    type="text" 
+    id="globalSearch"
+    class="form-control search-input"
+    placeholder="Search brokers, solicitors, customers..."
+    autocomplete="off"
+  >
+
+  <div 
+    id="searchResults" 
+    class="list-group position-absolute w-100 shadow"
+    style="z-index: 1000; display: none;">
+  </div>
+</div>
+
+
+    <!-- Ellipsis Dropdown -->
+    <div class="dropdown">
+      <button class="ellipsis-btn" data-bs-toggle="dropdown">
+        &#8942;
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="CRMPAGE1.html">Dashboard</a></li>
+        <li><a class="dropdown-item" href="Lead.html">Request Terms</a></li>
+        <li><a class="dropdown-item" href="Customer.html">Customers</a></li>
+        <li><a class="dropdown-item" href="#">Brokers</a></li>
+        <li><a class="dropdown-item" href="#">Solicitors</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <a class="dropdown-item text-danger" href="CRMPAGE1.html" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-lg-9">
@@ -290,4 +334,5 @@
 
 </body>
 </html>
+
 
