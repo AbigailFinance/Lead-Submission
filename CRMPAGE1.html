@@ -4,7 +4,7 @@
   <!-- 🔒 Redirect if not logged in -->
   <script>
     if (!sessionStorage.getItem("isLoggedIn")) {
-      window.location.href = "Login Page.html";
+      window.location.href = "Index.html";
     }
   </script>
 
@@ -255,15 +255,16 @@ document.addEventListener("click", (e) => {
     if (!lastActivity || Date.now() - lastActivity > IDLE_LIMIT) {
       sessionStorage.clear();
       alert("Session expired. Please log in again.");
-      window.location.href = "Login Page.html";
+      window.location.href = "Index.html";
     }
   }, 10000);
 
   function logout() {
     sessionStorage.clear();
-    window.location.href = "Login Page.html";
+    window.location.href = "Index.html";
   }
 </script>
 
 </body>
 </html>
+
