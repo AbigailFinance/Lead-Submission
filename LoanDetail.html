@@ -15,15 +15,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .checklist-item div {
-    font-size: 0.95rem;
-    }
-
     :root {
       --navy: #022449;
       --teal: #055f79;
@@ -84,40 +75,41 @@
     }
 
     /* Stage Dropdown */
-.stage-dropdown {
-  display: flex;
-  align-items: center;
-  background: #f8f9fa;
-  border-radius: 2rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid #dee2e6;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
+    .stage-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #f8f9fa;
+      border-radius: 2rem;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #dee2e6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
 
-.stage-dropdown i {
-  color: var(--gold);
-  font-size: 1.1rem;
-}
+    .stage-dropdown i {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
 
-.stage-select {
-  border: none;
-  background: transparent;
-  font-weight: 600;
-  color: var(--navy);
-  padding-right: 1.75rem;
-  min-width: 160px;
-}
+    .stage-select {
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      color: var(--navy);
+      padding-right: 1.75rem;
+      min-width: 160px;
+    }
 
-.stage-select:focus {
-  box-shadow: none;
-  outline: none;
-}
+    .stage-select:focus {
+      box-shadow: none;
+      outline: none;
+    }
 
-.stage-select option {
-  font-weight: 500;
-}
+    .stage-select option {
+      font-weight: 500;
+    }
 
-.ellipsis-btn {
+    .ellipsis-btn {
       background: none;
       border: none;
       font-size: 1.5rem;
@@ -132,41 +124,21 @@
     .navbar-brand img {
       max-height: 45px;
     }
-
   </style>
 </head>
-
 <body>
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg px-4 py-3">
-  <a class="navbar-brand" href="CRMPAGE1.html">
-    <img src="logo-horizontal.png" alt="Logo">
-  </a>
-
+  <a class="navbar-brand" href="#"><img src="logo-horizontal.png" alt="Logo"></a>
   <div class="ms-auto d-flex align-items-center gap-3">
-
     <div class="position-relative">
-  <input 
-    type="text" 
-    id="globalSearch"
-    class="form-control search-input"
-    placeholder="Search brokers, solicitors, customers..."
-    autocomplete="off"
-  >
+      <input type="text" id="globalSearch" class="form-control search-input" placeholder="Search brokers, solicitors, customers..." autocomplete="off">
+      <div id="searchResults" class="list-group position-absolute w-100 shadow" style="z-index:1000; display:none;"></div>
+    </div>
 
-  <div 
-    id="searchResults" 
-    class="list-group position-absolute w-100 shadow"
-    style="z-index: 1000; display: none;">
-  </div>
-</div>
-
-
-    <!-- Ellipsis Dropdown -->
     <div class="dropdown">
-      <button class="ellipsis-btn" data-bs-toggle="dropdown">
-        &#8942;
-      </button>
+      <button class="ellipsis-btn" data-bs-toggle="dropdown">&#8942;</button>
       <ul class="dropdown-menu dropdown-menu-end">
         <li><a class="dropdown-item" href="CRMPAGE1.html">Dashboard</a></li>
         <li><a class="dropdown-item" href="Lead.html">Request Terms</a></li>
@@ -174,12 +146,9 @@
         <li><a class="dropdown-item" href="Broker.html">Brokers</a></li>
         <li><a class="dropdown-item" href="Solicitor.html">Solicitors</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li>
-          <a class="dropdown-item text-danger" href="CRMPAGE1.html" onclick="logout()">Logout</a>
-        </li>
+        <li><a class="dropdown-item text-danger" href="CRMPAGE1.html" onclick="logout()">Logout</a></li>
       </ul>
     </div>
-
   </div>
 </nav>
 
@@ -189,56 +158,41 @@
   <div class="dashboard-card mb-4">
     <div class="d-flex justify-content-between align-items-start mb-3">
 
-  <!-- Left: Company & Borrower -->
-  <div>
-    <h1 class="mb-1">Oakwood Developments Ltd</h1>
-    <h3 class="mb-0">John Smith</h3>
-  </div>
+      <!-- Left: Company & Borrower -->
+      <div>
+        <h1 class="mb-1">Oakwood Developments Ltd</h1>
+        <h3 class="mb-0">John Smith</h3>
+      </div>
 
-  <!-- Right: Stage Dropdown -->
-  <div class="stage-dropdown">
-  <i class="bi bi-arrow-down-circle-fill me-2"></i>
-  <select class="form-select stage-select" id="stageSelect">
-  <option value="prospect" selected>Prospect</option>
-  <option value="deals">Deals</option>
-  <option value="legals">In Legals</option>
-  <option value="post">Post Completion</option>
-  <option value="closed">Closed</option>
-</select>
-
-
-  
-</div>
-
-</div>  
-
-    <!-- Loan info-->
-    <div class="row">
-        <div class="col-md-3">
-            <div class="text-muted">
-               Gross loan Amount:<br>£750,000
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="text-muted">
-               Security Address<br>45 Bridge Street, Leeds LS1 2AB
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="text-muted">
-               Loan Type<br>Retained
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="text-muted">
-               Rate<br>7.25%
-            </div>
-        </div>
+      <!-- Buttons container -->
+    <div class="d-flex gap-2">
+      <a href="Files.html" class="btn btn-outline-primary btn-sm">
+    <i class="bi bi-file-earmark"></i> Loan Files
+  </a>
     </div>
 
+      <!-- Right: Stage Dropdown + % Complete -->
+      <div class="stage-dropdown">
+        <i class="bi bi-arrow-down-circle-fill"></i>
+        <select class="form-select stage-select" id="stageSelect">
+          <option value="prospect" selected>Prospect</option>
+          <option value="deals">Deals</option>
+          <option value="legals">In Legals</option>
+          <option value="post">Post Completion</option>
+          <option value="closed">Closed</option>
+        </select>
+        <span id="percentComplete" class="fw-bold text-muted">0% </span>
+      </div>
+
+    </div>
+
+    <!-- Loan info -->
+    <div class="row">
+      <div class="col-md-3"><div class="text-muted">Gross loan Amount:<br>£750,000</div></div>
+      <div class="col-md-3"><div class="text-muted">Security Address<br>45 Bridge Street, Leeds LS1 2AB</div></div>
+      <div class="col-md-3"><div class="text-muted">Loan Type<br>Retained</div></div>
+      <div class="col-md-3"><div class="text-muted">Rate<br>7.25%</div></div>
+    </div>
   </div>
 
   <!-- STAGE TRACKER -->
@@ -255,143 +209,94 @@
   <!-- CHECKLIST -->
   <div class="dashboard-card">
     <h3 id="stageTitle" class="mb-3">Prospect Requirements</h3>
-
     <div id="checklistContainer"></div>
   </div>
-<br>
+  <br>
 
   <!-- Notes Box -->
-<div class="dashboard-card mb-4">
-  <h5 class="mb-3">Notes</h5>
-
-  <div class="border rounded p-3 bg-light">
-    <p class="mb-0 text-muted">
-      Paul Waters - 07/01/2026<p>Requested Signed OIP from Broker</p>
-    </p>
-    <br>
-    <p class="mb-0 text-muted">
-      Paul Waters - 05/01/2026<p>Sent OIP for signature</p>
-    </p>
+  <div class="dashboard-card mb-4">
+    <h5 class="mb-3">Notes</h5>
+    <div class="border rounded p-3 bg-light">
+      <p class="mb-0 text-muted">Paul Waters - 07/01/2026<p>Requested Signed OIP from Broker</p></p>
+      <br>
+      <p class="mb-0 text-muted">Paul Waters - 05/01/2026<p>Sent OIP for signature</p></p>
+    </div>
   </div>
-</div>
 
 </div>
 
 <script>
   const stageData = {
-    prospect: {
-      title: "Prospect Requirements",
-      items: ["OIP Sent"]
-    },
-    deals: {
-      title: "Deals Requirements",
-      items: ["OIP Signed", "Sizer Created", "Application Form", "Identity Check", "Toorak Instructed"]
-    },
-    legals: {
-      title: "In Legals Requirements",
-      items: ["Instruction Letter to Field Fisher",
-                "Bank Statement (Deposit)",
-                "Right to Remain",
-                "Valuation Complete",
-                "Borrower CV (if works funds)",
-                "A&L",
-                "Exit Plan",
-                "Credit Report",
-                "Building Insurance",
-                "Schedule of Works (if applicable)",
-                "Signed Security Documents",
-                "Report on Title (ROT)",
-                "Direct Debit Signed (If Interest Serviced)",
-                "Land Reg",
-                "Monitoring Survey Requested",
-                "Monitoring Survey Received",
-                "Monitoring Survey Received",
-                "Facilities Letter Approved"]
-    },
-    post: {
-      title: "Post Completion Requirements",
-      items: ["Funds Released", "Charge Registered",
-                "Evidence of Registered Charge",
-                "Final FF Completion Statement",
-                "Signed & Dated Security Docs",
-                "Final Signed RoT"
-      ]
-    },
-    closed: {
-      title: "Closed",
-      items: ["Loan Fully Repaid"]
-    }
+    prospect: { title: "Prospect Requirements", items: ["OIP Sent"] },
+    deals: { title: "Deals Requirements", items: ["OIP Signed","Sizer Created","Application Form","Identity Check","Toorak Instructed"] },
+    legals: { title: "In Legals Requirements", items: [
+      "Instruction Letter to Field Fisher","Bank Statement (Deposit)","Right to Remain","Valuation Complete",
+      "Borrower CV (if works funds)","A&L","Exit Plan","Credit Report","Building Insurance",
+      "Schedule of Works (if applicable)","Signed Security Documents","Report on Title (ROT)","Direct Debit Signed (If Interest Serviced)",
+      "Land Reg","Monitoring Survey Requested","Monitoring Survey Received","Monitoring Survey Received","Facilities Letter Approved"
+    ]},
+    post: { title: "Post Completion Requirements", items: ["Funds Released","Charge Registered","Evidence of Registered Charge","Final FF Completion Statement","Signed & Dated Security Docs","Final Signed RoT"] },
+    closed: { title: "Closed", items: ["Loan Fully Repaid"] }
   };
 
   const checklistContainer = document.getElementById("checklistContainer");
   const stageTitle = document.getElementById("stageTitle");
   const stageSteps = document.querySelectorAll(".stage-step");
+  const stageSelect = document.getElementById("stageSelect");
+  const percentDisplay = document.getElementById("percentComplete");
+
+  function updatePercentComplete() {
+    const checkboxes = checklistContainer.querySelectorAll("input[type='checkbox']");
+    const total = checkboxes.length;
+    if (total === 0) { percentDisplay.innerText = "0% Complete"; return; }
+    let checked = 0;
+    checkboxes.forEach(cb => { if(cb.checked) checked++; });
+    const percent = Math.round((checked / total) * 100);
+    percentDisplay.innerText = percent + "% ";
+  }
 
   function loadStage(stageKey) {
     const stage = stageData[stageKey];
-
     stageTitle.innerText = stage.title;
     checklistContainer.innerHTML = "";
 
-    if (stageKey === "legals") {
-  checklistContainer.innerHTML = `<div class="row g-2"></div>`;
-  const row = checklistContainer.querySelector(".row");
+    if(stageKey === "legals") {
+      checklistContainer.innerHTML = `<div class="row g-2"></div>`;
+      const row = checklistContainer.querySelector(".row");
+      stage.items.forEach(item => {
+        row.innerHTML += `<div class="col-md-4"><div class="checklist-item"><input type="checkbox" class="form-check-input"><div>${item}</div></div></div>`;
+      });
+    } else {
+      stage.items.forEach(item => {
+        checklistContainer.innerHTML += `<div class="checklist-item"><input type="checkbox" class="form-check-input"><div>${item}</div></div>`;
+      });
+    }
 
-  stage.items.forEach(item => {
-    row.innerHTML += `
-      <div class="col-md-4">
-        <div class="checklist-item">
-          <input type="checkbox" class="form-check-input">
-          <div>${item}</div>
-        </div>
-      </div>
-    `;
-  });
-} else {
-  stage.items.forEach(item => {
-    checklistContainer.innerHTML += `
-      <div class="checklist-item">
-        <input type="checkbox" class="form-check-input">
-        <div>${item}</div>
-      </div>
-    `;
-  });
-}
-
-
-    stageSteps.forEach(step => {
-      step.classList.remove("active");
-      if (step.dataset.stage === stageKey) {
-        step.classList.add("active");
-      }
+    // Add checkbox listeners for % complete
+    checklistContainer.querySelectorAll("input[type='checkbox']").forEach(cb => {
+      cb.addEventListener("change", updatePercentComplete);
     });
+    updatePercentComplete();
+
+    // Update stage tracker buttons
+    stageSteps.forEach(step => { step.classList.remove("active"); });
+    stageSteps.forEach(step => { if(step.dataset.stage === stageKey) step.classList.add("active"); });
+
+    // Update dropdown
+    stageSelect.value = stageKey;
   }
 
   stageSteps.forEach(step => {
-  step.addEventListener("click", () => {
-    const stageKey = step.dataset.stage;
-    stageSelect.value = stageKey;
-    loadStage(stageKey);
+    step.addEventListener("click", () => { loadStage(step.dataset.stage); });
   });
-});
 
+  stageSelect.addEventListener("change", () => { loadStage(stageSelect.value); });
 
   // Initial load
   loadStage("prospect");
 </script>
 
-  <script>
-    const stageSelect = document.getElementById("stageSelect");
-
-stageSelect.addEventListener("change", () => {
-  loadStage(stageSelect.value);
-});
-
-</script>
-
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
-
